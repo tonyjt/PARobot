@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PARobot", "PARobot\PARobot.csproj", "{8FEFF353-11DC-4E43-B36D-55586C09E0C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PARobot.Core", "PARobot.Core\PARobot.Core.csproj", "{D3255B88-3CF7-430F-915A-48AED13C2FF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FEFF353-11DC-4E43-B36D-55586C09E0C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FEFF353-11DC-4E43-B36D-55586C09E0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FEFF353-11DC-4E43-B36D-55586C09E0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FEFF353-11DC-4E43-B36D-55586C09E0C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3255B88-3CF7-430F-915A-48AED13C2FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3255B88-3CF7-430F-915A-48AED13C2FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3255B88-3CF7-430F-915A-48AED13C2FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3255B88-3CF7-430F-915A-48AED13C2FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
