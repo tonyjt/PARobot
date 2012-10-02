@@ -22,7 +22,7 @@ namespace PARobot
         private void button1_Click(object sender, EventArgs e)
         {
             Building building = new Building();
-            building.Id = 117503;
+            building.Id = 117504;
             building.Location = new Core.Models.Rectangle
             {
                 Point = new Core.Models.Point
@@ -34,7 +34,14 @@ namespace PARobot
                 Length =3
             };
 
-            GainManager.MoveToTreasureBowl(building);
+            //GainManager.MoveToTreasureBowl(building,);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<Building> buildings = BuildingManager.GetAllBuildings();
+
+            MessageBox.Show(GainManager.GainAll(buildings).ToString());
         }
     }
 }

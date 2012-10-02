@@ -10,13 +10,19 @@ namespace PARobot.Core.Managers
         public static void InitConfig()
         {
             RequestManager.RootUrl = "http://50.56.203.49:4005/api/";
-            RequestManager.Credential ="iShFeoHM78Jt0FNI87cQFIVa3Z2BY7hNTrBjLLuF2Ky9Pl2tMjywVcvcasxBvlOv85jhYA+S2wCK9xIXM442khOdZZfwT6MC";
-
+            RequestManager.Credential = "iShFeoHM78LpzBC7Dn/i5LQ4aVX5uxfdU0nqrqtyw+7HeSVk6zeaTZ3cVWSUau+ZeN73aF166YYO1XfKh5KBfNFzg+5bYCoA";
+            RequestManager.ClientType = "flash";
+            RequestManager.ClientVersion = "3.8.0";
             #region GainManager
             GainManager.MoveUrl = "userbuilding/plan.json";
             GainManager.BowlPoint = new Models.Point{X = 38,Y = 38};
+            GainManager.GainResourceUrl = "Userbuilding/FarmlandGain.json";
+            GainManager.GainGoldUrl = "userbuilding/gain.json";
             #endregion
-            
+            #region LoadManager
+            LoadManager.Url = "user/init.json";
+            #endregion
+
 
         }
        

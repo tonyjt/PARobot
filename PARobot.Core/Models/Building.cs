@@ -15,6 +15,15 @@ namespace PARobot.Core.Models
 
         public BuildState State { get; set; }
 
+        public BuildDirection Direction { get; set; }
+
+        public bool Gainable
+        {
+            get
+            {
+                return State == BuildState.Gain;
+            }
+        }
     }
 
     public enum BuildingType:byte
@@ -30,6 +39,12 @@ namespace PARobot.Core.Models
 
     public enum BuildState:byte
     {
-        Gain = 5
+        Not = 5,
+        Gain = 0
+    }
+
+    public enum BuildDirection:byte{
+        Normal = 0,
+        Right = 1
     }
 }

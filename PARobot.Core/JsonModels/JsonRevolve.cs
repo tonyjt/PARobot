@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PARobot.Core.JsonModels
 {
-    public class revolves
+    public class JsonRevolve
     {
         public int userbuildingid {get;set;}
         
