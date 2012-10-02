@@ -10,6 +10,12 @@ namespace PARobot.Core.Managers
 {
     public class GainManager
     {
+        public delegate void GainDelegate(int count);
+
+        public static GainDelegate Start;
+
+        public static GainDelegate GainComplelte;
+
         public static string MoveUrl { get; set; }
 
         public static Point BowlPoint { get; set; }
@@ -80,9 +86,15 @@ namespace PARobot.Core.Managers
         public static int GainAll(List<Building> builds)
         {
             int count = 0;
-            foreach (Building build in builds)
+
+            List<Building> gainAblebuilds = builds.FindAll(b => b.Gainable == true);
+
+            Start(gainAblebuilds.Count);
+            
+            for(int i =0;i<gainAblebuilds.Count;i++)
             {
-                if (!build.Gainable) continue;
+
+                Building build = gainAblebuilds[i];
 
                 if (MoveBuilding(build, BowlPoint))
                 {
@@ -91,6 +103,7 @@ namespace PARobot.Core.Managers
 
                     MoveBuilding(build, build.Location.Point);
                 }
+                GainComplelte(i + 1);
             }
             return count;
         }

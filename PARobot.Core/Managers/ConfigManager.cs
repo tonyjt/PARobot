@@ -10,7 +10,7 @@ namespace PARobot.Core.Managers
         public static void InitConfig()
         {
             RequestManager.RootUrl = "http://50.56.203.49:4005/api/";
-            RequestManager.Credential = "iShFeoHM78LpzBC7Dn/i5LQ4aVX5uxfdU0nqrqtyw+7HeSVk6zeaTZ3cVWSUau+ZeN73aF166YYO1XfKh5KBfNFzg+5bYCoA";
+            //RequestManager.Credential = "iShFeoHM78LpzBC7Dn/i5LQ4aVX5uxfdU0nqrqtyw+7HeSVk6zeaTZ3cVWSUau+ZeN73aF166YYO1XfKh5KBfNFzg+5bYCoA";
             RequestManager.ClientType = "flash";
             RequestManager.ClientVersion = "3.8.0";
             #region GainManager
@@ -22,8 +22,12 @@ namespace PARobot.Core.Managers
             #region LoadManager
             LoadManager.Url = "user/init.json";
             #endregion
-
-
+            #region MemberManager
+            MembershipManager.LoginUrl = "User/Login.json";
+            #endregion
+            #region StoreManager
+            StoreManager.FilePath = "data.txt";
+            #endregion
         }
        
     }

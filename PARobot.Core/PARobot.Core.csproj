@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Helper\DateTimeHelper.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Managers\StoreManager.cs" />
     <Compile Include="JsonModels\JsonAllInfo.cs" />
     <Compile Include="JsonModels\JsonBuilding.cs" />
     <Compile Include="JsonModels\JsonMove.cs" />
