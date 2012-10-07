@@ -1,11 +1,12 @@
-﻿using System;
+﻿using PARobot.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace PARobot.Core.JsonModels
 {
-    public class JsonResult
+    public class JsonResult:IJsonResult
     {
         //{"Status":{"StatusCode":200800,"StatusMessage":"200800"},"
 

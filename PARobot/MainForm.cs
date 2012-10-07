@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PARobot
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public string Email { get; set; }
 
@@ -21,8 +21,9 @@ namespace PARobot
         delegate void SetProgressBarMaxCallback(int count);
         delegate void SetProgressBarStepCallback(int count);
         delegate void SetCompleateCallback();
+        delegate void ShowGainFailedCallback(string message);
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             ConfigManager.InitConfig();
@@ -53,6 +54,7 @@ namespace PARobot
         {
             GainManager.Start = new GainManager.GainDelegate(StartGainHandler);
             GainManager.GainComplelte = new GainManager.GainDelegate(GainCompleteHandler);
+            GainManager.GainFailed = new GainManager.GainFailedMessage(GainFailedHandler);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace PARobot
 
         private void Gain()
         {
-            if (MembershipManager.Login(txtEmail.Text, txtPwd.Text))
+            if (MembershipManager.Login(txtEmail.Text, txtPwd.Text).Flag == ResultFlag.Success)
             {
                 //Save Password
                 SaveData();
@@ -144,6 +146,22 @@ namespace PARobot
                 StopGain();
             }
         }
+
+        private void ShowGainFailed(string message)
+        {
+            if (this.pb.InvokeRequired)
+            {
+                ShowGainFailedCallback d = new ShowGainFailedCallback(ShowGainFailed);
+                this.Invoke(d, new object[] { message });
+            }
+            else
+            {
+                MessageBox.Show(message);
+                StopGain();
+            }
+        }
+
+
         #endregion
         #region DelegateHandler
         public void StartGainHandler(int count)
@@ -155,7 +173,10 @@ namespace PARobot
             SetProgressBarStep(count);
         }
 
-
+        public void GainFailedHandler(string message)
+        {
+            ShowGainFailed(message);
+        }
         #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PARobot.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace PARobot.Core.Managers
     {
         public static string LoginUrl { get; set; }
 
-        public static bool Login(string email, string password)
+        public static Result Login(string email, string password)
         {
             List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
 

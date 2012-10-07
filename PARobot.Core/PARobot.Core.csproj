@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Helper\DateTimeHelper.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Interfaces\IResult.cs" />
+    <Compile Include="Interfaces\IJsonResult.cs" />
+    <Compile Include="JsonModels\JsonCreate.cs" />
+    <Compile Include="JsonModels\JsonRemove.cs" />
+    <Compile Include="Managers\EnerageManager.cs" />
+    <Compile Include="Managers\ItemManager.cs" />
     <Compile Include="Managers\StoreManager.cs" />
     <Compile Include="JsonModels\JsonAllInfo.cs" />
     <Compile Include="JsonModels\JsonBuilding.cs" />
@@ -66,14 +72,18 @@
     <Compile Include="Managers\MembershipManager.cs" />
     <Compile Include="Managers\RequestManager.cs" />
     <Compile Include="Managers\ResponseManager.cs" />
+    <Compile Include="Managers\UpgradeManager.cs" />
     <Compile Include="Models\Building.cs" />
     <Compile Include="Models\GZipWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\IdBase.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Membership.cs" />
     <Compile Include="Models\Point.cs" />
     <Compile Include="Models\Rectangle.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\ResultCreateBuilding.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

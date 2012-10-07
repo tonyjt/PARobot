@@ -24,6 +24,8 @@ namespace PARobot.Core.Models
                 return State == BuildState.Gain;
             }
         }
+
+        public int BaseId { get; set; }
     }
 
     public enum BuildingType:byte

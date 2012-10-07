@@ -1,6 +1,6 @@
 ﻿namespace PARobot
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pb = new System.Windows.Forms.ProgressBar();
+            this.btnRunInterval = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // button2
@@ -87,11 +89,32 @@
             this.pb.TabIndex = 6;
             this.pb.Visible = false;
             // 
+            // btnRunInterval
+            // 
+            this.btnRunInterval.Location = new System.Drawing.Point(385, 195);
+            this.btnRunInterval.Name = "btnRunInterval";
+            this.btnRunInterval.Size = new System.Drawing.Size(75, 23);
+            this.btnRunInterval.TabIndex = 7;
+            this.btnRunInterval.Text = "定时收割";
+            this.btnRunInterval.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(385, 140);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(53, 12);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "其他功能";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 244);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.btnRunInterval);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -113,6 +136,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar pb;
+        private System.Windows.Forms.Button btnRunInterval;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

@@ -10,6 +10,12 @@ namespace PARobot.Core.Managers
 {
     public class BuildingManager
     {
+        public static string MoveUrl { get; set; }
+
+        public static string CreateUrl { get; set; }
+
+        public static string DestoryUrl { get; set; }
+
         public static List<Building> GetAllBuildings()
         {
             JsonAllInfo jsonInfo = LoadManager.Load();
@@ -59,6 +65,98 @@ namespace PARobot.Core.Managers
                 Y = Convert.ToInt32(strs[1])
             };
             
+        }
+
+        public static Result MoveBuilding(Building building, Point target)
+        {
+            List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
+
+
+            JsonPlan plan = new JsonPlan
+            {
+                moves = new List<JsonMove>
+                {
+                    new JsonMove
+                    {
+                        userbuildingid = building.Id,
+                        rectangle = string.Format("{0},{1};{2},{3}", target.X, target.Y, building.Location.Width, building.Location.Length)
+                    }
+                },
+                revolves = new List<JsonRevolve>
+                {
+                    new JsonRevolve
+                    {
+                        userbuildingid = building.Id,
+                        showdirection = 0
+                    }
+                }
+            };
+
+
+            postData.Add(new KeyValuePair<string, string>(
+                "plan",
+                JsonHelper.JavaScriptSerialize<JsonPlan>(plan)
+            ));
+
+            string result = RequestManager.SendRequest(MoveUrl, postData, true);
+
+            return ResponseManager.ProcessResponse(result);
+
+        }
+
+        public static Result Create(ref Building building, Point target)
+        {
+            List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
+
+
+            JsonPlan plan = new JsonPlan
+            {
+                creates = new List<JsonCreate>
+                {
+                    new JsonCreate
+                    {
+                        buildingid = building.BaseId,
+                        rectangle = string.Format("{0},{1};{2},{3}", target.X, target.Y, building.Location.Width, building.Location.Length)
+                    }
+                }
+               
+            };
+            postData.Add(new KeyValuePair<string, string>(
+                "plan",
+                JsonHelper.JavaScriptSerialize<JsonPlan>(plan)
+            ));
+            string strResult = RequestManager.SendRequest(MoveUrl, postData, true);
+
+            Result result = ResponseManager.ProcessResponse(strResult);
+
+
+            return result;
+        }
+
+        public static Result Destory(Building building)
+        {
+            List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
+
+
+            JsonPlan plan = new JsonPlan
+            {
+                removes = new List<JsonRemove>
+                {
+                    new JsonRemove
+                    {
+                        userbuildingid = building.Id
+                    }
+                }
+
+            };
+            postData.Add(new KeyValuePair<string, string>(
+                "plan",
+                JsonHelper.JavaScriptSerialize<JsonPlan>(plan)
+            ));
+
+            string result = RequestManager.SendRequest(MoveUrl, postData, true);
+
+            return ResponseManager.ProcessResponse(result);
         }
     }
 }

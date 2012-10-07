@@ -12,11 +12,15 @@ namespace PARobot.Core.Managers
     {
         public delegate void GainDelegate(int count);
 
+        public delegate void GainFailedMessage(string message);
+
         public static GainDelegate Start;
 
         public static GainDelegate GainComplelte;
 
-        public static string MoveUrl { get; set; }
+        public static GainFailedMessage GainFailed;
+
+
 
         public static Point BowlPoint { get; set; }
 
@@ -29,44 +33,9 @@ namespace PARobot.Core.Managers
             return build.State == BuildState.Gain;
         }
 
-        public static bool MoveBuilding(Building building,Point target)
-        {
-            List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string,string>>();
+   
 
-            
-            JsonPlan plan = new JsonPlan
-            {
-                moves = new List<JsonMove>
-                {
-                    new JsonMove
-                    {
-                        userbuildingid = building.Id,
-                        rectangle = string.Format("{0},{1};{2},{3}", target.X, target.Y, building.Location.Width, building.Location.Length)
-                    }
-                },
-                revolves = new List<JsonRevolve>
-                {
-                    new JsonRevolve
-                    {
-                        userbuildingid = building.Id,
-                        showdirection = 0
-                    }
-                }
-            };
-
-            
-            postData.Add(new KeyValuePair<string,string>(
-                "plan",
-                JsonHelper.JavaScriptSerialize<JsonPlan>(plan)
-            ));
-
-            string result = RequestManager.SendRequest(MoveUrl, postData,true);
-
-            return ResponseManager.ProcessResponse(result);
-
-        }
-
-        public static bool Gain(Building build)
+        public static Result Gain(Building build)
         {
             string url = build.BuildingType == BuildingType.Gold ? GainGoldUrl : GainResourceUrl;
 
@@ -96,12 +65,22 @@ namespace PARobot.Core.Managers
 
                 Building build = gainAblebuilds[i];
 
-                if (MoveBuilding(build, BowlPoint))
+                if (BuildingManager.MoveBuilding(build, BowlPoint).Flag == ResultFlag.Success)
                 {
                     //收割
-                    if (Gain(build)) count++;
-
-                    MoveBuilding(build, build.Location.Point);
+                    if (Gain(build).Flag == ResultFlag.Success) count++;
+                    int j = 0;
+                    for (; j < 10; j++)
+                    {
+                        if (BuildingManager.MoveBuilding(build, build.Location.Point).Flag == ResultFlag.Success)
+                        {
+                            break;
+                        }
+                    }
+                    if (j == 10)
+                    {
+                        GainFailed("建筑物卡在聚宝盆内，无法移出");
+                    }
                 }
                 GainComplelte(i + 1);
             }

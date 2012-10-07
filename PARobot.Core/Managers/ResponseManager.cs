@@ -1,5 +1,7 @@
 ﻿using PARobot.Core.Helper;
+using PARobot.Core.Interfaces;
 using PARobot.Core.JsonModels;
+using PARobot.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +12,39 @@ namespace PARobot.Core.Managers
     public class ResponseManager
     {
 
-        public static bool ProcessResponse(string result)
+        public static Result ProcessResponse(string strResult)
         {
-            if (string.IsNullOrEmpty(result)) return false;
+            IJsonResult jsonResult;
 
-            try
+            return ProcessResponse<JsonResult>(strResult, out jsonResult);
+        }
+
+
+
+        public static Result ProcessResponse<T>(string strResult, out IJsonResult jsonResult)
+        {
+            Result result= new Result();
+            jsonResult = null;
+            if (string.IsNullOrEmpty(strResult)) result.Flag = ResultFlag.Failed;
+
+            else
             {
-                JsonResult jsonResult = JsonHelper.JavaScriptDeserialize<JsonResult>(result);
+                try
+                {
+                    jsonResult = (IJsonResult)JsonHelper.JavaScriptDeserialize<T>(strResult);
 
-                if (jsonResult.Status.StatusCode % 100 == 0) return true;
+                    if (jsonResult.Status.StatusCode % 100 == 0) result.Flag = ResultFlag.Success;
 
-                else return false;
+                    else if (jsonResult.Status.StatusCode == 200411) result.Flag = ResultFlag.EnergyNotEnough;
+
+                    else result.Flag = ResultFlag.Failed;
+                }
+                catch
+                {
+                    result.Flag = ResultFlag.Failed;
+                }
             }
-            catch
-            {
-                return false;
-            }
+            return result;
         }
     }
 }
