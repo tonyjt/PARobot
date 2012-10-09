@@ -55,7 +55,9 @@
     <Compile Include="Interfaces\IJsonResult.cs" />
     <Compile Include="JsonModels\JsonCreate.cs" />
     <Compile Include="JsonModels\JsonRemove.cs" />
+    <Compile Include="JsonModels\JsonUpdateSetting.cs" />
     <Compile Include="Managers\EnerageManager.cs" />
+    <Compile Include="Managers\InitManager.cs" />
     <Compile Include="Managers\ItemManager.cs" />
     <Compile Include="Managers\StoreManager.cs" />
     <Compile Include="JsonModels\JsonAllInfo.cs" />
