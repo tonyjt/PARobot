@@ -29,10 +29,13 @@ namespace PARobot.Core.Managers
         {
             if (dicContents == null)
             {
-                string[] lines = File.ReadAllLines(FilePath);
-                dicContents = lines.Select(l => l.Split('=')).ToDictionary(a => a[0], a => a[1]);
+                if(File.Exists(FilePath))
+                {
+                    string[] lines = File.ReadAllLines(FilePath);
+                    dicContents = lines.Select(l => l.Split('=')).ToDictionary(a => a[0], a => a[1]);
+                }
             }
-            return dicContents.ContainsKey(key) ? dicContents[key] : "";
+            return dicContents!=null&&dicContents.ContainsKey(key) ? dicContents[key] : "";
         }
     }
 }

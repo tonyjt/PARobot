@@ -13,6 +13,7 @@ namespace PARobot.Core.Managers
             //RequestManager.Credential = "iShFeoHM78LpzBC7Dn/i5LQ4aVX5uxfdU0nqrqtyw+7HeSVk6zeaTZ3cVWSUau+ZeN73aF166YYO1XfKh5KBfNFzg+5bYCoA";
             RequestManager.ClientType = "flash";
             RequestManager.ClientVersion = "3.8.0";
+            RequestManager.ClientSettingVersion = "23775";
             #region BuildingManager
             BuildingManager.MoveUrl = "userbuilding/plan.json";
             #endregion

@@ -18,6 +18,9 @@ namespace PARobot.Core.Managers
         public static string ClientType { get; set; }
 
         public static string ClientVersion{get;set;}
+
+        public static string ClientSettingVersion { get; set; }
+
         public static string SendRequest(string actionPath, IEnumerable<KeyValuePair<string, string>> postData, bool isPost = false, int timeOut = 0)
         {
             string data = GenerateQueryString(postData);
@@ -63,7 +66,7 @@ namespace PARobot.Core.Managers
             webClient.Headers.Add("ClientType", ClientType);
             webClient.Headers.Add("ClientVersion", ClientVersion);
             webClient.Headers.Add("Referer", "http://www.idfgame.com/New2.swf");
-            webClient.Headers.Add("ClientSettingVersion", "23770");
+            webClient.Headers.Add("ClientSettingVersion", ClientSettingVersion);
             try
             {
                 string returnResponse = "";
