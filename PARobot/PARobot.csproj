@@ -91,6 +91,7 @@
     <EmbeddedResource Include="UpgradeForm.resx">
       <DependentUpon>UpgradeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
