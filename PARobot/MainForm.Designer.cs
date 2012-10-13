@@ -35,14 +35,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pb = new System.Windows.Forms.ProgressBar();
             this.btnRunInterval = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnFightLoop = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(184, 195);
+            this.button2.Location = new System.Drawing.Point(144, 164);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(170, 41);
             this.button2.TabIndex = 1;
             this.button2.Text = "开动收割机";
             this.button2.UseVisualStyleBackColor = true;
@@ -91,29 +93,41 @@
             // 
             // btnRunInterval
             // 
-            this.btnRunInterval.Location = new System.Drawing.Point(385, 195);
+            this.btnRunInterval.Location = new System.Drawing.Point(387, 100);
             this.btnRunInterval.Name = "btnRunInterval";
             this.btnRunInterval.Size = new System.Drawing.Size(75, 23);
             this.btnRunInterval.TabIndex = 7;
-            this.btnRunInterval.Text = "定时收割";
+            this.btnRunInterval.Text = "登录";
             this.btnRunInterval.UseVisualStyleBackColor = true;
+            this.btnRunInterval.Click += new System.EventHandler(this.btnRunInterval_Click);
             // 
-            // linkLabel1
+            // btnFightLoop
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(385, 140);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(53, 12);
-            this.linkLabel1.TabIndex = 8;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "其他功能";
+            this.btnFightLoop.Enabled = false;
+            this.btnFightLoop.Location = new System.Drawing.Point(43, 30);
+            this.btnFightLoop.Name = "btnFightLoop";
+            this.btnFightLoop.Size = new System.Drawing.Size(75, 23);
+            this.btnFightLoop.TabIndex = 8;
+            this.btnFightLoop.Text = "攻击侦查";
+            this.btnFightLoop.UseVisualStyleBackColor = true;
+            this.btnFightLoop.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnFightLoop);
+            this.groupBox1.Location = new System.Drawing.Point(35, 227);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(426, 82);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "其他功能";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 244);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(492, 317);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRunInterval);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.label2);
@@ -121,8 +135,9 @@
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.button2);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "联合收割机";
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,7 +152,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar pb;
         private System.Windows.Forms.Button btnRunInterval;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnFightLoop;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

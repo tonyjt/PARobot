@@ -105,6 +105,7 @@ namespace PARobot
             SetCompleate();
         }
         #region Thread Safe
+
         private void SetProgressBarMax(int count)
         {
             // InvokeRequired required compares the thread ID of the
@@ -178,5 +179,44 @@ namespace PARobot
             ShowGainFailed(message);
         }
         #endregion
+
+        private void btnRunInterval_Click(object sender, EventArgs e)
+        {
+            if (MembershipManager.Login(txtEmail.Text, txtPwd.Text).Flag == ResultFlag.Success)
+            {
+                //Save Password
+                SaveData();
+                SetOtherFunctionsOn();
+            }
+            else
+            {
+                SetOtherFunctionsOff();
+                MessageBox.Show("登录失败");
+            }
+        }
+
+        private void SetOtherFunctionsOff()
+        {
+            btnFightLoop.Enabled = false;
+        }
+
+        private void SetOtherFunctionsOn()
+        {
+            btnFightLoop.Enabled = true;
+        }
+
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FunctionMenu menu = new FunctionMenu();
+
+            menu.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FightForm fightForm = new FightForm();
+            fightForm.Show();
+        }
     }
 }

@@ -5,10 +5,8 @@ using System.Text;
 
 namespace PARobot.Core.JsonModels
 {
-    public class JsonAllInfo
+    public class JsonFriendList
     {
-        public List<JsonBuilding> UserBuildings { get; set; }
-
-        public JsonUser User { get; set; }
+        public List<JsonFriend> Friends { get; set; }
     }
 }

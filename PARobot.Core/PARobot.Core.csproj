@@ -55,9 +55,14 @@
     <Compile Include="Interfaces\IResult.cs" />
     <Compile Include="Interfaces\IJsonResult.cs" />
     <Compile Include="JsonModels\JsonCreate.cs" />
+    <Compile Include="JsonModels\JsonFriend.cs" />
+    <Compile Include="JsonModels\JsonFriendList.cs" />
     <Compile Include="JsonModels\JsonRemove.cs" />
     <Compile Include="JsonModels\JsonUpdateSetting.cs" />
+    <Compile Include="JsonModels\JsonUser.cs" />
     <Compile Include="Managers\EnerageManager.cs" />
+    <Compile Include="Managers\FightManager.cs" />
+    <Compile Include="Managers\FriendManager.cs" />
     <Compile Include="Managers\InitManager.cs" />
     <Compile Include="Managers\ItemManager.cs" />
     <Compile Include="Managers\StoreManager.cs" />
@@ -76,7 +81,9 @@
     <Compile Include="Managers\RequestManager.cs" />
     <Compile Include="Managers\ResponseManager.cs" />
     <Compile Include="Managers\UpgradeManager.cs" />
+    <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Models\Building.cs" />
+    <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\GZipWebClient.cs">
       <SubType>Component</SubType>
     </Compile>

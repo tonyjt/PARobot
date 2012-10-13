@@ -18,6 +18,7 @@ namespace PARobot.Core.Managers
             #region BuildingManager
             BuildingManager.MoveUrl = "userbuilding/plan.json";
             #endregion
+
             #region GainManager
             
             GainManager.BowlPoint = new Models.Point{
@@ -27,24 +28,41 @@ namespace PARobot.Core.Managers
             GainManager.GainResourceUrl = "Userbuilding/FarmlandGain.json";
             GainManager.GainGoldUrl = "userbuilding/gain.json";
             #endregion
+
             #region LoadManager
             LoadManager.Url = "user/init.json";
             #endregion
+
             #region MemberManager
             MembershipManager.LoginUrl = "User/Login.json";
             #endregion
+
             #region StoreManager
             StoreManager.FilePath = "data.txt";
             #endregion
+
             #region ItemManager
             ItemManager.UseUrl = "userprop/operating.json"; 
+            #endregion
+
+            #region FriendManager
+            FriendManager.FriendUrl = GetConfig("FriendListUrl","Friends/FriendList.json");
+            #endregion
+
+            #region FightManager
+            FightManager.AttackLevelDistance = GetConfig("AttackLevelDistance", 1);
             #endregion
         }
 
 
         public static string GetConfig(string key,string defaultValue="")
         {
-            return ConfigurationManager.AppSettings[key];
+            string value =  ConfigurationManager.AppSettings[key];
+            if (string.IsNullOrEmpty(value))
+            {
+                value = defaultValue;
+            }
+            return value;
         }
 
         public static int GetConfig(string key, int defaulValue)
