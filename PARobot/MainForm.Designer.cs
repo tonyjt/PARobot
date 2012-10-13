@@ -34,9 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pb = new System.Windows.Forms.ProgressBar();
-            this.btnRunInterval = new System.Windows.Forms.Button();
             this.btnFightLoop = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbOther = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,22 +91,11 @@
             this.pb.TabIndex = 6;
             this.pb.Visible = false;
             // 
-            // btnRunInterval
-            // 
-            this.btnRunInterval.Location = new System.Drawing.Point(387, 100);
-            this.btnRunInterval.Name = "btnRunInterval";
-            this.btnRunInterval.Size = new System.Drawing.Size(75, 23);
-            this.btnRunInterval.TabIndex = 7;
-            this.btnRunInterval.Text = "登录";
-            this.btnRunInterval.UseVisualStyleBackColor = true;
-            this.btnRunInterval.Click += new System.EventHandler(this.btnRunInterval_Click);
-            // 
             // btnFightLoop
             // 
-            this.btnFightLoop.Enabled = false;
-            this.btnFightLoop.Location = new System.Drawing.Point(43, 30);
+            this.btnFightLoop.Location = new System.Drawing.Point(138, 29);
             this.btnFightLoop.Name = "btnFightLoop";
-            this.btnFightLoop.Size = new System.Drawing.Size(75, 23);
+            this.btnFightLoop.Size = new System.Drawing.Size(117, 38);
             this.btnFightLoop.TabIndex = 8;
             this.btnFightLoop.Text = "攻击侦查";
             this.btnFightLoop.UseVisualStyleBackColor = true;
@@ -117,18 +106,29 @@
             this.groupBox1.Controls.Add(this.btnFightLoop);
             this.groupBox1.Location = new System.Drawing.Point(35, 227);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(426, 82);
+            this.groupBox1.Size = new System.Drawing.Size(411, 82);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "其他功能";
+            // 
+            // lbOther
+            // 
+            this.lbOther.AutoSize = true;
+            this.lbOther.Location = new System.Drawing.Point(427, 199);
+            this.lbOther.Name = "lbOther";
+            this.lbOther.Size = new System.Drawing.Size(53, 12);
+            this.lbOther.TabIndex = 10;
+            this.lbOther.TabStop = true;
+            this.lbOther.Text = "其他功能";
+            this.lbOther.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbOther_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 317);
+            this.ClientSize = new System.Drawing.Size(492, 220);
+            this.Controls.Add(this.lbOther);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnRunInterval);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -151,9 +151,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar pb;
-        private System.Windows.Forms.Button btnRunInterval;
         private System.Windows.Forms.Button btnFightLoop;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.LinkLabel lbOther;
     }
 }
 

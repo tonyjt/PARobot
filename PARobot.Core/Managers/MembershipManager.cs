@@ -30,5 +30,13 @@ namespace PARobot.Core.Managers
 
             return ResponseManager.ProcessResponse(result);
         }
+
+        public static Result Login()
+        {
+            string Email = StoreManager.Read("Email");
+            string Password = StoreManager.Read("Password");
+
+            return Login(Email, Password);
+        }
     }
 }

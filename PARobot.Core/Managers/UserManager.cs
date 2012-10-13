@@ -9,6 +9,8 @@ namespace PARobot.Core.Managers
 {
     public class UserManager
     {
+        public static User CurrentUser { get; set; }
+
         public static User GetUserInfo()
         {
             JsonAllInfo jsonInfo = LoadManager.Load();
@@ -29,6 +31,18 @@ namespace PARobot.Core.Managers
                 Energy = jsonUser.Energy
             };
             return user;
+        }
+
+        public static User GetCurrentUser()
+        {
+            if (CurrentUser == null || CurrentUser.Level == 1)
+            {
+                if (MembershipManager.Login().Flag == ResultFlag.Success)
+                {
+                    CurrentUser = GetUserInfo();
+                }
+            }
+            return CurrentUser;
         }
     }
 }

@@ -23,6 +23,10 @@ namespace PARobot
         delegate void SetCompleateCallback();
         delegate void ShowGainFailedCallback(string message);
 
+        private bool Extended = false;
+
+        private int OriginalHeight;
+
         public MainForm()
         {
             InitializeComponent();
@@ -39,6 +43,7 @@ namespace PARobot
             txtPwd.Text = Password;
             pb.Minimum = 0;
             pb.Step = 1;
+            OriginalHeight = this.Height;
             
         }
 
@@ -217,6 +222,14 @@ namespace PARobot
         {
             FightForm fightForm = new FightForm();
             fightForm.Show();
+        }
+
+        private void lbOther_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            this.Height = Extended ? OriginalHeight : 400;
+
+            Extended = !Extended;
         }
     }
 }

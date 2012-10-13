@@ -21,9 +21,9 @@ namespace PARobot
 
         delegate void SetProgressBarStepCallback(int count);
 
-        public int count;
+        delegate void StopCallback();
 
-        public User user;
+        public int count;
 
         public FightForm()
         {
@@ -49,10 +49,7 @@ namespace PARobot
 
         private void StartLoop()
         {
-            if (user == null)
-            {
-                user = UserManager.GetUserInfo();
-            }
+
             SetControlsLooping();
             aTimer.Start();
             Loop();
@@ -72,6 +69,8 @@ namespace PARobot
 
          private void Loop()
          {
+             User user = UserManager.GetCurrentUser();
+
              List<Friend> friend = FightManager.GetAttackAbleFriends(user.Level);
 
              if (friend != null && friend.Count > 0)
@@ -100,7 +99,19 @@ namespace PARobot
              }
          }
 
-
+         private void StopCallbackHandler()
+         {
+            
+             if (this.lblMsg.InvokeRequired)
+             {
+                 StopCallback d = new StopCallback(StopCallbackHandler);
+                 this.Invoke(d);
+             }
+             else
+             {
+                 SetControlsStop();
+             }
+         }
          
          private void SetControlsLooping()
          {
