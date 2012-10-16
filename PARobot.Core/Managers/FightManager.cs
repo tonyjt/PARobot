@@ -17,7 +17,7 @@ namespace PARobot.Core.Managers
 
             if (friendList == null) return null;
 
-            return friendList.FindAll(f => !f.IsProtect && !f.HasAttack && f.Level >= level - AttackLevelDistance && f.Level <= level + AttackLevelDistance);
+            return friendList.FindAll(f => !f.Invades);
         }
 
         

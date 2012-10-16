@@ -14,5 +14,6 @@ namespace PARobot.Core.JsonModels
         public bool Present{get;set;}
         public bool HasAttacked{get;set;}
         public bool IsProect{get;set;}
+        public bool Invades { get; set; }
     }
 }

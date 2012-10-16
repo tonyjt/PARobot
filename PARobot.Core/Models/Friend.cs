@@ -14,5 +14,7 @@ namespace PARobot.Core.Models
         public bool IsProtect { get; set; }
 
         public bool HasAttack { get; set; }
+
+        public bool Invades { get; set; }
     }
 }

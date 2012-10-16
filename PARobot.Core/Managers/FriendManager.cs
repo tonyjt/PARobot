@@ -49,7 +49,9 @@ namespace PARobot.Core.Managers
                     Id = jf.UserId,
                     Level = jf.Level,
                     IsProtect = jf.IsProect,
-                    HasAttack = jf.HasAttacked
+                    HasAttack = jf.HasAttacked,
+                    Name = jf.NickName,
+                    Invades = jf.Invades
                 };
 
                 friendList.Add(friend);
