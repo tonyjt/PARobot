@@ -37,6 +37,7 @@
             this.btnFightLoop = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbOther = new System.Windows.Forms.LinkLabel();
+            this.btnExp = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +94,7 @@
             // 
             // btnFightLoop
             // 
-            this.btnFightLoop.Location = new System.Drawing.Point(138, 29);
+            this.btnFightLoop.Location = new System.Drawing.Point(56, 20);
             this.btnFightLoop.Name = "btnFightLoop";
             this.btnFightLoop.Size = new System.Drawing.Size(117, 38);
             this.btnFightLoop.TabIndex = 8;
@@ -103,6 +104,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExp);
             this.groupBox1.Controls.Add(this.btnFightLoop);
             this.groupBox1.Location = new System.Drawing.Point(35, 227);
             this.groupBox1.Name = "groupBox1";
@@ -121,6 +123,16 @@
             this.lbOther.TabStop = true;
             this.lbOther.Text = "其他功能";
             this.lbOther.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbOther_LinkClicked);
+            // 
+            // btnExp
+            // 
+            this.btnExp.Location = new System.Drawing.Point(241, 20);
+            this.btnExp.Name = "btnExp";
+            this.btnExp.Size = new System.Drawing.Size(106, 38);
+            this.btnExp.TabIndex = 9;
+            this.btnExp.Text = "增加经验";
+            this.btnExp.UseVisualStyleBackColor = true;
+            this.btnExp.Click += new System.EventHandler(this.btnExp_Click);
             // 
             // MainForm
             // 
@@ -154,6 +166,7 @@
         private System.Windows.Forms.Button btnFightLoop;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel lbOther;
+        private System.Windows.Forms.Button btnExp;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using PARobot.Core.Helper;
+using PARobot.Core.Interfaces;
 using PARobot.Core.JsonModels;
 using PARobot.Core.Models;
 using System;
@@ -104,7 +105,7 @@ namespace PARobot.Core.Managers
 
         }
 
-        public static Result Create(ref Building building, Point target)
+        public static Result Create(ref Building building)
         {
             List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
 
@@ -116,7 +117,7 @@ namespace PARobot.Core.Managers
                     new JsonCreate
                     {
                         buildingid = building.BaseId,
-                        rectangle = string.Format("{0},{1};{2},{3}", target.X, target.Y, building.Location.Width, building.Location.Length)
+                        rectangle = string.Format("{0},{1};{2},{3}", building.Location.Point.X, building.Location.Point.Y, building.Location.Width, building.Location.Length)
                     }
                 }
                
@@ -127,8 +128,12 @@ namespace PARobot.Core.Managers
             ));
             string strResult = RequestManager.SendRequest(MoveUrl, postData, true);
 
-            Result result = ResponseManager.ProcessResponse(strResult);
+            JsonResultCreate jsonResultCreate = null;
+            IJsonResult jr = (IJsonResult)jsonResultCreate;
 
+            Result result = ResponseManager.ProcessResponse<JsonResultCreate>(strResult, out jr);
+            if (result.Flag == ResultFlag.Success)
+                building.BaseId = ((JsonResultCreate)jr).UserBuildings[0].UserBuildingId;
 
             return result;
         }
@@ -144,7 +149,7 @@ namespace PARobot.Core.Managers
                 {
                     new JsonRemove
                     {
-                        userbuildingid = building.Id
+                        userbuildingid = building.BaseId
                     }
                 }
 

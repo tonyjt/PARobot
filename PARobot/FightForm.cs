@@ -69,7 +69,7 @@ namespace PARobot
 
          private void Loop()
          {
-             User user = UserManager.GetCurrentUser();
+             User user = UserManager.GetCurrentUser(true);
 
              List<Friend> friend = FightManager.GetAttackAbleFriends(user.Level);
 

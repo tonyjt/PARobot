@@ -58,8 +58,10 @@
     <Compile Include="JsonModels\JsonFriend.cs" />
     <Compile Include="JsonModels\JsonFriendList.cs" />
     <Compile Include="JsonModels\JsonRemove.cs" />
+    <Compile Include="JsonModels\JsonResultCreate.cs" />
     <Compile Include="JsonModels\JsonUpdateSetting.cs" />
     <Compile Include="JsonModels\JsonUser.cs" />
+    <Compile Include="JsonModels\JsonUserBuilding.cs" />
     <Compile Include="Managers\EnerageManager.cs" />
     <Compile Include="Managers\FightManager.cs" />
     <Compile Include="Managers\FriendManager.cs" />

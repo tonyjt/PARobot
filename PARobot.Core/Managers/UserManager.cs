@@ -33,9 +33,9 @@ namespace PARobot.Core.Managers
             return user;
         }
 
-        public static User GetCurrentUser()
+        public static User GetCurrentUser(bool needLogin = false)
         {
-            if (CurrentUser == null || CurrentUser.Level == 1)
+            if (needLogin||CurrentUser == null || CurrentUser.Level == 1)
             {
                 if (MembershipManager.Login().Flag == ResultFlag.Success)
                 {

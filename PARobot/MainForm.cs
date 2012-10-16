@@ -231,5 +231,11 @@ namespace PARobot
 
             Extended = !Extended;
         }
+
+        private void btnExp_Click(object sender, EventArgs e)
+        {
+            UpgradeForm form = new UpgradeForm();
+            form.Show();
+        }
     }
 }

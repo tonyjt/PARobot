@@ -83,7 +83,8 @@ namespace PARobot.Core.Managers
 
                     returnResponse = webClient.UploadString(url, data);
                 }
-                Credential = webClient.ResponseHeaders["Credential"];
+                if(!string.IsNullOrEmpty(webClient.ResponseHeaders["Credential"]))
+                    Credential =webClient.ResponseHeaders["Credential"];
 
                 if (webClient.StatusCode() != HttpStatusCode.OK) return "";
 

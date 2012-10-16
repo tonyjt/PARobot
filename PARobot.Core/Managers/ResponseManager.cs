@@ -35,7 +35,7 @@ namespace PARobot.Core.Managers
 
                     if (jsonResult.Status.StatusCode % 100 == 0) result.Flag = ResultFlag.Success;
 
-                    else if (jsonResult.Status.StatusCode == 200411) result.Flag = ResultFlag.EnergyNotEnough;
+                    else if (jsonResult.Status.StatusCode == 201003) result.Flag = ResultFlag.EnergyNotEnough;
 
                     else result.Flag = ResultFlag.Failed;
                 }
