@@ -30,7 +30,8 @@ namespace PARobot
             Item item = new Item{
                 Id = 1103
             };
-
+            if (comboBox1.SelectedIndex == 1)
+                item.Id = 1106;
             string message;
 
             if (MembershipManager.Login().Flag == ResultFlag.Success)
@@ -58,6 +59,11 @@ namespace PARobot
             }
 
             return exp;
+        }
+
+        private void UpgradeForm_Load(object sender, EventArgs e)
+        {
+            this.comboBox1.SelectedIndex = 0;
         }
     }
 }
